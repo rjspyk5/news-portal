@@ -8,7 +8,7 @@ const makeCatagoriesSection = (datas) => {
     span.innerHTML = `<button onclick="handleButton(id)"  id=${datum.category_id} class="btn btn-ghost focus:bg-blue-600 focus:text-white text-black">${datum.category_name}</button> `;
     catagorySection.appendChild(span);
   });
-  handleButton("08");
+  handleButton("01");
 };
 
 // Shown data when someone click on catagory
@@ -16,13 +16,15 @@ const newsContainer = document.getElementById("news-container");
 const showDataWithCatagory = (datas) => {
   const data = datas.data;
   data.forEach((el) => {
+    console.log(el);
     const div = document.createElement("div");
     div.innerHTML = `
-  <div class="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img class="w-96" src=${el?.image_url} alt="Album"/></figure>
-  <div class="card-body">
-    <h2 class="card-title">New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
+  <div class="card py-5 lg:card-side bg-base-100 shadow-xl">
+  <img class="w-96" src=${el?.image_url} alt="Album"/>
+  <div class="px-8" >
+    <h2 class="card-title">${el.title}</h2>
+    <p>${el.details}</p>
+    
     <div class="card-actions justify-end">
       <button class="btn btn-primary">Listen</button>
     </div>
