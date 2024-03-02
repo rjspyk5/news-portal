@@ -2,11 +2,13 @@
 const catagorySection = document.getElementById("catagorySection");
 const makeCatagoriesSection = (datas) => {
   const data = datas.data.news_category;
+
   data.forEach((datum) => {
     const span = document.createElement("span");
     span.innerHTML = `<button onclick="handleButton(id)"  id=${datum.category_id} class="btn btn-ghost focus:bg-blue-600 focus:text-white text-black">${datum.category_name}</button> `;
     catagorySection.appendChild(span);
   });
+  handleButton("08");
 };
 
 // Shown data when someone click on catagory
@@ -29,8 +31,6 @@ const showDataWithCatagory = (datas) => {
   `;
     newsContainer.appendChild(div);
   });
-
-  console.log(data);
 };
 // Clear previous
 const clearPrev = () => {
